@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>育博文書組</title>
+<meta name="description" content="育博文書組的學習安排與進度">
+<meta name="theme-color" content="#8A1F2B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="文書組">
+<meta name="robots" content="noindex">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="app" class="app" hidden>
+  <aside class="side" aria-label="主選單">
+    <div class="brand">
+      <img src="icon-192.png" alt="" width="40" height="40">
+      <div><div class="brand-name">育博文書組</div><div class="brand-sub">學習安排與進度</div></div>
+    </div>
+    <nav class="side-nav" id="sideNav"></nav>
+    <div class="side-foot" id="sideFoot"></div>
+  </aside>
+  <main class="main">
+    <header class="top">
+      <h1 id="title">首頁</h1>
+      <div class="top-actions">
+        <button type="button" class="icon-btn" id="refreshBtn" aria-label="更新資料"></button>
+        <button type="button" class="icon-btn" id="helpBtn" aria-label="說明與安裝"></button>
+      </div>
+    </header>
+    <div id="updated" class="updated"></div>
+    <section id="view" class="view" aria-live="polite"></section>
+  </main>
+  <nav class="tabbar" id="tabbar" aria-label="分頁"></nav>
+</div>
+
+<div id="login" class="login" hidden>
+  <form class="login-card" id="loginForm" autocomplete="off">
+    <img src="icon-192.png" alt="" width="84" height="84" class="login-logo">
+    <h1>育博文書組</h1>
+    <p class="muted">輸入組長給你的通行碼</p>
+    <label class="sr" for="codeInput">通行碼</label>
+    <input id="codeInput" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder="6 位數字" required>
+    <button type="submit" class="btn primary">進入</button>
+    <p class="err" id="loginErr" role="alert"></p>
+  </form>
+</div>
+
+<div id="sheet" class="sheet" hidden>
+  <div class="sheet-backdrop" data-close></div>
+  <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div class="sheet-grip" aria-hidden="true"></div>
+    <div class="sheet-head"><h2 id="sheetTitle"></h2><button type="button" class="icon-btn" data-close aria-label="關閉"></button></div>
+    <div id="sheetBody" class="sheet-body"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
